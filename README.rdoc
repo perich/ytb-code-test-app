@@ -28,3 +28,13 @@ Please add your notes below.
 
 Notes
 -----
+- Step 1: Move book actions into a books_controller. A user controller should not be creating/destroying the book model. 
+
+- Step 2: remove instance variable from partial/simplify syntax. This makes partials more portable, as they dont rely on a specific instance variable.
+
+- Step 3: Move admin email into a model method. I didn't add this to an after_create hook as code that has lots of hooks can be harder to test and maintain. I think it's hard to ever say we ALWAYS want to do something, better to explicitly call a method than set a callback
+
+- Step 4: send email as deliver_later. This will speed up the user create action a bit.
+
+Further Refactoring: I might consider seperating the User and Book models completely and having a join table for UserBooks.
+I think in this example it's premature as I'm not really sure if these are books the user has written or read. If its read then a many-to-many relationship makes more sense. It it's written then one-to-many is fine. Until I know more about the purpose of the app, I'll leave it as is.
