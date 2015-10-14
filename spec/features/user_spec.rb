@@ -15,6 +15,7 @@ RSpec.feature 'Users:', type: :feature do
       email = ActionMailer::Base.deliveries.last
       expect(email.subject).to eq 'New user added'
       expect(email.to_s).to include 'Sam Smith'
+      ActionMailer::Base.deliveries = []
     end
 
   end
