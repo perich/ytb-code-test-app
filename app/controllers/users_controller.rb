@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :create_book, :destroy_book]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -62,29 +62,6 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  # def create_book
-  #   @book = Book.new(book_params)
-
-  #   respond_to do |format|
-  #     if @book.save
-  #       format.html { redirect_to @user, notice: 'Book was successfully created.' }
-  #       format.json { render :show, status: :created, location: @user }
-  #     else
-  #       format.html { render :new }
-  #       format.json { render json: @book.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
-
-  # def destroy_book
-  #   @book = Book.find(params[:book_id])
-  #   @book.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to @user, notice: 'Book was successfully destroyed.' }
-  #     format.json { head :no_content }
-  #   end
-  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
